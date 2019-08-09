@@ -11,3 +11,5 @@ This is an example crawler of Pccomponentes this time, this script gives info ab
 
 
 This script takes out a markdown file (inside logs) that indicates the time it has taken and the amount of products collected, it also takes out a json of all the products.
+
+The project is done with node, puppeteer and cheerio
