@@ -132,6 +132,7 @@ main().then((res) => {
 	var today2 = new Date()
 	let horafin = new Date(today2.getTime() + days * 24 * 60 * 60 * 1000)
 	exportar.exportar(horastart, horafin, res.length)	  
-	insertar.insertaroffer(res)
+	//Uncomment to insert to a DB(see folder InsertDB and change it)
+	// insertar.insertaroffer(res)
 
 })
