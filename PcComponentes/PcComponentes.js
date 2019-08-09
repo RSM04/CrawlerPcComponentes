@@ -9,8 +9,8 @@ let fecha = new Date()
 const extractInfo = require('../ExtractInfo/general.js')
 var nombres = [
 	'procesadores',
-	'tarjetas-graficas',
-	'memorias-ram',
+	// 'tarjetas-graficas',
+	// 'memorias-ram',
 	// 'fuentes-alimentacion',
 	// 'placas-base',
 	// 'discos-duros',
@@ -89,7 +89,7 @@ function urls(browser) {
 
 async function main() {
 	const browser = await puppeteer.launch({
-		headless: true
+		headless: false
 		//args: ['--proxy-server=']
 	})
 	return new Promise((resolve, reject) => {
@@ -111,6 +111,7 @@ async function main() {
 						if (err) {
 							console.log(err)
 						} else {
+							browser.close();
 							resolve(arrayproductos)
 						}
 					}
@@ -121,7 +122,7 @@ async function main() {
 main().then((res) => {
 	console.log(res)
 	var datosJSON = JSON.stringify(res)
-	fs.writeFile(`./../Json/PcComp-${fecha.getFullYear()}-${fecha.getMonth()}-${fecha.getDate()}`, datosJSON, function (
+	fs.writeFile(`./../Json/PcComp-${fecha.getFullYear()}-${fecha.getMonth()}-${fecha.getDate()}.json`, datosJSON, function (
 		err
 	) {
 		if (err) {
